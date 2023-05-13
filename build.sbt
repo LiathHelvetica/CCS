@@ -6,3 +6,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "CCS"
   )
+
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.2.15" % "test"
+)
