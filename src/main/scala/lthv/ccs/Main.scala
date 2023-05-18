@@ -1,18 +1,38 @@
 package lthv.ccs
 
 import lthv.ccs.preprocess.Preprocessor
+import lthv.ccs.process.Tokeniser
+import lthv.ccs.token.MaterialisedToken
 
 import scala.io.Source
-import scala.util.Try
+import scala.util.{Failure, Left, Right, Success, Try}
 
 object Main {
 
   val ENCODING = "US-ASCII"
 
   def main(args: Array[String]): Unit = {
-    val t = Try { args(0) }
+    val resourceTry = Try { args(0) }
       .map(path => Source.fromFile(path, ENCODING))
-      .map(source => source.getLines().toSeq) // unsafe, use state monad (?)
-      .map(Preprocessor.removeComments)
+
+    val preprocessedLines = resourceTry.map(source => source.getLines().toSeq)
+      .map(lines => lines.zipWithIndex)
+      .map(Preprocessor.reduceRedundantLines)
+
+    val tokens = preprocessedLines match {
+      case Success(lines) => {
+        val (excs, tokens) = lines.map {
+          case (line, i) => Tokeniser.toTokens(line, i)
+        }.foldLeft((Seq.empty[Throwable], Seq.empty[Seq[MaterialisedToken]])) {
+          case ((excs, tokens), Success(tokensLine)) => excs -> (tokens :+ tokensLine)
+          case ((excs, tokens), Failure(exc)) => (excs :+ exc) -> tokens
+        }
+
+        if (excs.isEmpty) Right(tokens) else Left(excs)
+      }
+      case Failure(t) => Left(Seq(t))
+    }
+
+    resourceTry.foreach(_.close)
   }
 }
