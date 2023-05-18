@@ -19,7 +19,7 @@ object Main {
       .map(lines => lines.zipWithIndex)
       .map(Preprocessor.reduceRedundantLines)
 
-    val tokens = preprocessedLines match {
+    val tokensLines = preprocessedLines match {
       case Success(lines) => {
         val (excs, tokens) = lines.map {
           case (line, i) => Tokeniser.toTokens(line, i)
@@ -32,6 +32,8 @@ object Main {
       }
       case Failure(t) => Left(Seq(t))
     }
+
+    val tokens = tokensLines.map(_.flatten)
 
     resourceTry.foreach(_.close)
   }

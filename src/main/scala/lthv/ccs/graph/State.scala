@@ -24,7 +24,7 @@ object State {
 
     override def materialiseToken(in: String): Token = NOTHING
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case '!' | '#' | '*' | ',' | '-' | ':' | ';' | '>' => Some(DEFINITELY_OPERATOR)
       case ' ' | '\t' => Some(SINGLE_DEFINED_WHITESPACE)
       case c if c.isWhitespace => Some(WHITESPACES_STATE)
@@ -123,7 +123,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
     }
@@ -134,7 +134,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 'm' => Some(IM)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -146,7 +146,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 'p' => Some(IMP)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -158,7 +158,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 'o' => Some(IMPO)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -170,7 +170,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 'r' => Some(IMPOR)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -182,7 +182,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 't' => Some(IMPORT)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -194,7 +194,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 'a' => Some(IMPORTA)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -206,7 +206,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 'n' => Some(IMPORTAN)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None
@@ -218,7 +218,7 @@ object State {
 
     override def materialiseToken(in: String): Token = ALPHA
 
-    override def nextState(c: Char): Option[State] = c match {
+    override def nextState(c: Char): Option[State] = c.toLower match {
       case 't' => Some(IMPORTANT)
       case c if c.isLetter => Some(ALPHA_STATE)
       case _ => None

@@ -101,4 +101,11 @@ class TokeniserTest extends AnyFunSuite {
     val line = "123 ~QWE "
     performFailingTest(line)
   }
+
+  test("Important spelled in mixed case recognised properly") {
+
+    val line = "!ImPoRtAnT"
+    val expected = Seq(EXC, IMPORTANT_KWORD)
+
+    performTest(line, expected)  }
 }
