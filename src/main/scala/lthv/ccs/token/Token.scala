@@ -95,6 +95,10 @@ object Token {
     override val name: String = "EXTRA_CHARS"
     override val definition: String = "[_\\/().\"'+?&=]+"
   }
+
+  val TOKENS: Set[Token] = Set(COLON, SEMICOLON, HASH, DOT, GT, PLUS, STAR, COMMA, HYPHEN, IMPORTANT_KWORD, SPACE, TAB, WHITESPACES, EXC, ALPHA, NUMERIC, EXTRA_CHARS)
+
+  val TOKEN_MAP = TOKENS.map(t => t.name -> t).toMap
 }
 
 
