@@ -33,8 +33,6 @@ object Main {
       case Failure(t) => Left(Seq(t))
     }
 
-    val tokens = tokensLines.map(_.flatten)
-
     resourceTry.foreach(_.close)
   }
 }
