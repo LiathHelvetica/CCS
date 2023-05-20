@@ -16,7 +16,7 @@ object GrammarConstructor {
     val sourceTry = Success(fileName)
       .map(path => Source.fromFile(path, ENCODING))
 
-    val out = sourceTry.map(source => source.getLines().toSeq.filter(_.isBlank))
+    val out = sourceTry.map(source => source.getLines().toSeq.filterNot(_.isBlank))
       .map(_.map(line => {
         val splitted = line.split(SPLITTER)
         splitted(0).trim -> splitted(1).trim
@@ -24,7 +24,7 @@ object GrammarConstructor {
       .map(_.groupMap(t => t._1)(t => t._2.split("\\s+").toSeq))
       .map(grammar => {
         grammar.map {
-          case (k, v) => k -> new NonTerminalProduction(v)
+          case (k, v) => k -> new NonTerminalProduction(v.map(_.toList).toList)
         } ++ TOKEN_MAP.map {
           case (k, v) => k -> TerminalProduction(v)
         } ++ Map(NOTHING.name -> NothingProduction)

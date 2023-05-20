@@ -8,7 +8,7 @@ class PreprocessorTest extends AnyFunSuite {
   test("Comments are removed properly") {
 
     val code = "this is code"
-    val in = Seq(s"$code\\\\ this is comment" -> 0)
+    val in = Seq(s"$code// this is comment" -> 0)
 
     val out = Preprocessor.reduceRedundantLines(in)
 
@@ -18,7 +18,7 @@ class PreprocessorTest extends AnyFunSuite {
   test("Lines are right-trimmed properly") {
 
     val code = " this is code"
-    val in = Seq(s"$code          \\\\ this is comment" -> 0)
+    val in = Seq(s"$code          // this is comment" -> 0)
 
     val out = Preprocessor.reduceRedundantLines(in)
 

@@ -61,7 +61,7 @@ object Main {
       }
     }
 
-    println(validationOutcome)
+    validationOutcome.fold(ts => throw ts.head, res => println(res))
 
     resourceTry.foreach(_.close)
   }

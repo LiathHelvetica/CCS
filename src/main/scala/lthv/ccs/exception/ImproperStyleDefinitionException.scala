@@ -7,6 +7,6 @@ case class ImproperStyleDefinitionException(msg: String) extends Exception(msg)
 object ImproperStyleDefinitionException {
 
   def apply(lastToken: StyleTokens): ImproperStyleDefinitionException = new ImproperStyleDefinitionException(
-    s"Encountered improper style $lastToken"
+    s"Encountered improper style with no properties $lastToken"
   )
 }

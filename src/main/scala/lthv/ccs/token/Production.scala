@@ -25,7 +25,7 @@ object Production {
     }
   }
 
-  class NonTerminalProduction(definitionC: Seq[Seq[String]]) extends Production {
+  class NonTerminalProduction(definitionC: List[List[String]]) extends Production {
 
     val definitions: Seq[Seq[String]] = definitionC
 
@@ -47,7 +47,8 @@ object Production {
         }
       }
 
-      throw UnrecognisedTokenException(stream.peak().getOrElse(throw new Exception("Empty stream")))
+      // throw UnrecognisedTokenException(stream.peak().getOrElse(throw new Exception("Empty stream")))
+      false
     }
   }
 }
