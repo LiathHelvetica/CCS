@@ -1,0 +1,6 @@
+div+p,
+div>p
+    font-size: smaller; // cztery spacje
+		font-family: serif; // dwa taby
+	font-weight: bolder; //ok
+	font-style: normal; //ok

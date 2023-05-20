@@ -56,6 +56,11 @@ object Token {
     override val definition: String = "-"
   }
 
+  case object UNDERSCORE extends Token {
+    override val name: String = "UNDERSCORE"
+    override val definition: String = "_"
+  }
+
   case object IMPORTANT_KWORD extends Token {
     override val name: String = "IMPORTANT_KWORD"
     override val definition: String = "important"

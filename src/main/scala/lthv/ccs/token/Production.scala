@@ -59,6 +59,7 @@ object Production {
         }
       }
 
+      // I think throw was correct - it signifies that no initial symbol could be matched
       // throw UnrecognisedTokenException(stream.peak().getOrElse(throw new Exception("Empty stream")))
       false
     }

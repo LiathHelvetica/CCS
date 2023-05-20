@@ -1,0 +1,5 @@
+div+p,
+div>p
+		font-family: serif; // dwa taby
+	font-weight: bolder; //ok
+	font-style: normal; //ok

@@ -1,7 +1,7 @@
 package lthv.ccs.graph
 
 import lthv.ccs.token.{FileState, MaterialisedToken, Token}
-import lthv.ccs.token.Token.{ALPHA, COLON, COMMA, DOT, EXC, EXTRA_CHARS, GT, HASH, HYPHEN, IMPORTANT_KWORD, NOTHING, NUMERIC, PLUS, SEMICOLON, SPACE, STAR, TAB, WHITESPACES}
+import lthv.ccs.token.Token.{ALPHA, COLON, COMMA, DOT, EXC, EXTRA_CHARS, GT, HASH, HYPHEN, IMPORTANT_KWORD, NOTHING, NUMERIC, PLUS, SEMICOLON, SPACE, STAR, TAB, UNDERSCORE, WHITESPACES}
 
 trait State {
 
@@ -25,10 +25,10 @@ object State {
     override def materialiseToken(in: String): Token = NOTHING
 
     override def nextState(c: Char): Option[State] = c.toLower match {
-      case '!' | '#' | '*' | ',' | '-' | ':' | ';' | '>' => Some(DEFINITELY_OPERATOR)
+      case '!' | '#' | '*' | ',' | '-' | ':' | ';' | '>' | '_' => Some(DEFINITELY_OPERATOR)
       case ' ' | '\t' => Some(SINGLE_DEFINED_WHITESPACE)
       case c if c.isWhitespace => Some(WHITESPACES_STATE)
-      case '(' | ')' | '_' | '/' | '\\' | '&' | '=' | '?' | '\'' | '"' | '%' => Some(DEFINITELY_EXTRA_CHARS)
+      case '(' | ')' | '/' | '\\' | '&' | '=' | '?' | '\'' | '"' | '%' => Some(DEFINITELY_EXTRA_CHARS)
       case '+' | '.' => Some(POTENTIALLY_OPERATOR)
       case c if c.isDigit => Some(NUMERIC_STATE)
       case 'i' => Some(I)
@@ -46,6 +46,7 @@ object State {
       case "*" => STAR
       case "," => COMMA
       case "-" => HYPHEN //misleading but that's correct
+      case "_" => UNDERSCORE
       case ":" => COLON
       case ";" => SEMICOLON
       case ">" => GT
