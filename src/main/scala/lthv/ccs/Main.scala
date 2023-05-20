@@ -10,9 +10,9 @@ import scala.util.{Failure, Left, Right, Success, Try}
 object Main {
 
   val ENCODING = "US-ASCII"
-  val SELECTOR_GRAMMAR_PATH = "src/main/resources/selector_grammar"
-  val PROPERTY_GRAMMAR_PATH = "src/main/resources/property_grammar"
-  val LAST_PROPERTY_GRAMMAR_PATH = "src/main/resources/last_property_grammar"
+  val SELECTOR_GRAMMAR_PATH = "src/main/resources/grammars/selector_grammar"
+  val PROPERTY_GRAMMAR_PATH = "src/main/resources/grammars/property_grammar"
+  val LAST_PROPERTY_GRAMMAR_PATH = "src/main/resources/grammars/last_property_grammar"
 
   def main(args: Array[String]): Unit = {
     val resourceTry = Try { args(0) }
