@@ -39,7 +39,19 @@ object Production {
           case h :: t => {
             if (grammar.get(h).exists(p => p.accept(stream, grammar))) { // if definition accepts
               return t.foldLeft(true)((b, str) => {
-                grammar.get(str).exists(prod => b && prod.accept(stream, grammar))
+                // grammar.get(str).exists(prod => b && prod.accept(stream, grammar))
+                // change for foreach?
+                grammar.get(str).map(prod => {
+                  if (!prod.accept(stream, grammar)) {
+                    throw new Exception(
+                      s"Could not fulfill grammar rule ??? -> $definition\n" +
+                        s"Tokens left: ${stream.stream}\n" +
+                        s"Stopped at symbol: $str"
+                    )
+                  } else {
+                    true
+                  }
+                }).getOrElse(throw new Exception(s"Could not find production $str"))
               })
             }
           }

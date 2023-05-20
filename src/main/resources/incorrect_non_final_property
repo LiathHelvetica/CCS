@@ -1,0 +1,5 @@
+// incorrect first style
+
+.myclass + .qwe
+	prop: value
+	prop: value
