@@ -1,6 +1,6 @@
-package lthv.ccs.process
+package lthv.ccs.parser
 
-import lthv.ccs.token.MaterialisedToken
+import lthv.ccs.tokeniser.token.MaterialisedToken
 
 case class StyleTokens(
   selector: Seq[Seq[MaterialisedToken]] = Seq.empty,

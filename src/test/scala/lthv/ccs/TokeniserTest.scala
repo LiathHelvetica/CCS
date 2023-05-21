@@ -1,8 +1,8 @@
 package lthv.ccs
 
-import lthv.ccs.process.Tokeniser
-import lthv.ccs.token.{MaterialisedToken, Token}
-import lthv.ccs.token.Token.{ALPHA, COLON, DOT, EXC, EXTRA_CHARS, GT, HASH, IMPORTANT_KWORD, PLUS, SPACE, TAB, WHITESPACES}
+import lthv.ccs.tokeniser.Tokeniser
+import lthv.ccs.tokeniser.token.{MaterialisedToken, Token}
+import lthv.ccs.tokeniser.token.Token.{ALPHA, COLON, DOT, EXC, EXTRA_CHARS, GT, HASH, IMPORTANT_KWORD, PLUS, SPACE, TAB, WHITESPACES}
 import org.scalatest.funsuite.AnyFunSuite
 
 import scala.util.{Failure, Success}

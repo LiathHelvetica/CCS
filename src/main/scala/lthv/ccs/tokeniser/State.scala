@@ -1,7 +1,7 @@
-package lthv.ccs.graph
+package lthv.ccs.tokeniser
 
-import lthv.ccs.token.{FileState, MaterialisedToken, Token}
-import lthv.ccs.token.Token.{ALPHA, COLON, COMMA, DOT, EXC, EXTRA_CHARS, GT, HASH, HYPHEN, IMPORTANT_KWORD, NOTHING, NUMERIC, PLUS, SEMICOLON, SPACE, STAR, TAB, UNDERSCORE, WHITESPACES}
+import lthv.ccs.tokeniser.token.Token.{ALPHA, COLON, COMMA, DOT, EXC, EXTRA_CHARS, GT, HASH, HYPHEN, IMPORTANT_KWORD, NOTHING, NUMERIC, PLUS, SEMICOLON, SPACE, STAR, TAB, UNDERSCORE, WHITESPACES}
+import lthv.ccs.tokeniser.token.{FileState, MaterialisedToken, Token}
 
 trait State {
 

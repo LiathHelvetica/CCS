@@ -1,8 +1,8 @@
-package lthv.ccs.process
+package lthv.ccs.parser
 
 import lthv.ccs.exception.{ImproperStyleDefinitionException, IndentationException}
-import lthv.ccs.token.MaterialisedToken
-import lthv.ccs.token.Token.{SPACE, TAB, WHITESPACES}
+import lthv.ccs.tokeniser.token.MaterialisedToken
+import lthv.ccs.tokeniser.token.Token.{SPACE, TAB, WHITESPACES}
 
 object StyleGrouper {
 
@@ -18,9 +18,9 @@ object StyleGrouper {
       case ((acc, style, excs, stack), tokenLine) => {
         (stack, tokenLine) match {
           case (stack, token :: tokenTail) if continuedTab(stack, token) => encounterContinuedTab(acc, style, excs, stack, tokenTail)
-          case (stack, token :: tokenTail) if continuedNonIndent(stack, token) => encounterContinuedNonIndent(acc, style, excs, stack, tokenLine)
+          case (stack, token :: _) if continuedNonIndent(stack, token) => encounterContinuedNonIndent(acc, style, excs, stack, tokenLine)
           case (stack, token :: tokenTail) if pushedTab(stack, token) => encounterPushedTab(acc, style, excs, stack, tokenTail)
-          case (stack, token :: tokenTail) if poppedTab(stack, token) => encounterPoppedTab(acc, style, excs, stack, tokenLine)
+          case (stack, token :: _) if poppedTab(stack, token) => encounterPoppedTab(acc, style, excs, stack, tokenLine)
           case (_, tokenLine) if tokenLine.isEmpty => encounterEmptyTokenLine(acc, style, excs, stack)
           case (_, _) => encounterError(acc, style, excs, stack, tokenLine)
         }

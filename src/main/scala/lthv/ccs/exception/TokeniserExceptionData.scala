@@ -1,6 +1,6 @@
 package lthv.ccs.exception
 
-import lthv.ccs.process.TokeniserState
+import lthv.ccs.tokeniser.TokeniserState
 
 case class TokeniserExceptionData(invalidChar: Char, line: Int, iChar: Int)
 

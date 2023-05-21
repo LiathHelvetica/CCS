@@ -1,4 +1,4 @@
-package lthv.ccs.token
+package lthv.ccs.tokeniser.token
 
 trait Token {
   val name: String          // ALPHA
@@ -101,7 +101,7 @@ object Token {
     override val definition: String = "[_\\/().\"'+?&=]+"
   }
 
-  val TOKENS: Set[Token] = Set(COLON, SEMICOLON, HASH, DOT, GT, PLUS, STAR, COMMA, HYPHEN, IMPORTANT_KWORD, SPACE, TAB, WHITESPACES, EXC, ALPHA, NUMERIC, EXTRA_CHARS)
+  val TOKENS: Set[Token] = Set(COLON, SEMICOLON, HASH, DOT, GT, PLUS, STAR, COMMA, HYPHEN, UNDERSCORE, IMPORTANT_KWORD, SPACE, TAB, WHITESPACES, EXC, ALPHA, NUMERIC, EXTRA_CHARS)
 
   val TOKEN_MAP = TOKENS.map(t => t.name -> t).toMap
 }

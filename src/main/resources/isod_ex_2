@@ -3,6 +3,7 @@ p + + q           // invalid
 	border: 1px solid #999;
 	page-break-inside: avoid;
 
+// since indentation is checked separately other issues will not be caught
 div+p,
 div>p
     font-size: smaller; // 4 spaces

@@ -1,8 +1,8 @@
-package lthv.ccs.process
+package lthv.ccs.tokeniser
 
 import lthv.ccs.exception.{TokeniserException, TokeniserExceptionData}
-import lthv.ccs.graph.State.START
-import lthv.ccs.token.{FileState, MaterialisedToken}
+import lthv.ccs.tokeniser.State.START
+import lthv.ccs.tokeniser.token.MaterialisedToken
 
 import scala.util.{Failure, Success, Try}
 

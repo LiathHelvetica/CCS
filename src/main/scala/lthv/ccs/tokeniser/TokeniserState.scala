@@ -1,8 +1,7 @@
-package lthv.ccs.process
+package lthv.ccs.tokeniser
 
-import lthv.ccs.graph.State
-import lthv.ccs.graph.State.START
-import lthv.ccs.token.{FileState, MaterialisedToken}
+import lthv.ccs.tokeniser.State.START
+import lthv.ccs.tokeniser.token.{FileState, MaterialisedToken}
 
 case class TokeniserState(
   state: State,

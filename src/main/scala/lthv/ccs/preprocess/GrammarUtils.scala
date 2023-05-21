@@ -1,6 +1,6 @@
 package lthv.ccs.preprocess
 
-import lthv.ccs.token.Production
+import lthv.ccs.parser.Production
 
 object GrammarUtils {
 
