@@ -25,7 +25,10 @@ class TokenStream(tokensC: Seq[MaterialisedToken]) {
   def streamToString: String = stream.map(_.tokenType.name).mkString(" ")
 
   def lineTag: String = {
-    val line = tokens.headOption.map(_.fileState.line.toString).getOrElse("?")
+    val line = stream.headOption
+      .map(_.fileState.line.toString)
+      .orElse(tokens.lastOption.map(_.fileState.line.toString))
+      .getOrElse("?")
     val pos = stream.headOption.map(mt => {
       mt.fileState.iCharBeg.toString -> mt.fileState.iCharEnd.toString
     }).orElse(tokens.lastOption.map(mt => {

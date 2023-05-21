@@ -1,6 +1,6 @@
 foo _bar,          // ok
 baz,               // ok
-:quax              // ok
+:quax qwe,         // ok
 #ok                // ok
 	display: flex;
 	margin: 1px

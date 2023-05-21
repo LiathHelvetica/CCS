@@ -3,7 +3,7 @@
 // but since selectors are forced to one line this is effectively ":quax qwe#ok"
 foo _bar,          // ok
 baz,               // ok
-:quax qwe,         // ok
+:quax qwe          // ok
 #ok                // ok
 	display: flex;
 	margin: 1px
