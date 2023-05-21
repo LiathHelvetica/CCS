@@ -1,0 +1,21 @@
+p + + q           // invalid
+	content: "see below";
+	border: 1px solid #999;
+	page-break-inside: avoid;
+
+// since indentation is checked separately other issues will not be caught
+div+p,
+div>p
+    font-size: smaller; // 4 spaces
+		font-family: serif; // 2 tabs
+	font-weight: bolder; // ok
+	font-style: normal; // ok
+
+pine + apple
+	max-width: 100% !oops; // invalid
+
+foo _bar, // ok
+&baz, // invalid
+:quax // ok
+	display: flex // invalid
+	margin: 1px // ok

@@ -1,0 +1,13 @@
+p + + q           // invalid
+	content: "see below";
+	border: 1px solid #999;
+	page-break-inside: avoid;
+
+pine + apple
+	max-width: 100% !oops; // invalid
+
+foo _bar, // ok
+&baz, // invalid
+:quax // ok
+	display: flex // invalid
+	margin: 1px // ok
