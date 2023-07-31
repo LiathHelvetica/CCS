@@ -71,4 +71,24 @@ class ValidatorTest extends AnyFunSuite {
   test("underscore class passes") {
     passes("underscore_class")
   }
+
+  test("last property without semicolon passes") {
+    passes("last_property_no_semi")
+  }
+
+  test("no semicolon in non-last property fails") {
+    fails("no_semi_in_non_last")
+  }
+
+  test("color property passes") {
+    passes("color_property")
+  }
+
+  test("width property passes") {
+    passes("width_property")
+  }
+
+  test("border property passes") {
+    passes("border_property")
+  }
 }
